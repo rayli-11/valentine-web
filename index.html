@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine's Day, My Love! 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Google Fonts for sweet typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts">
+    <div class="heart heart-1"></div>
+    <div class="heart heart-2"></div>
+    <div class="heart heart-3"></div>
+    <div class="heart heart-4"></div>
+  </div>
+  <div class="container">
+    <h1>
+      <i class="fa-solid fa-heart"></i>
+      Happy Valentine’s Day, My Love!
+      <i class="fa-solid fa-heart"></i>
+    </h1>
+    <p class="love-msg">
+      Every moment with you is like a beautiful dream come true.<br>
+      <span class="highlight">I love you more than words can express.</span>
+    </p>
+    <div class="love-icons">
+      <i class="fa-solid fa-envelope animated icon-action" id="emailIcon" title="Send you a love letter"></i>
+      <i class="fa-solid fa-gift animated icon-action" id="giftIcon" title="Open your gift"></i>
+      <i class="fa-solid fa-kiss-wink-heart animated"></i>
+      <i class="fa-solid fa-rose animated"></i>
+      <i class="fa-solid fa-ring animated"></i>
+    </div>
+    <button class="love-btn">
+      <i class="fa-solid fa-heart-pulse"></i>
+      Press for a Kiss
+    </button>
+    <div class="kiss-popup" id="kissPopup">
+      <i class="fa-solid fa-kiss-wink-heart"></i> Mwah! <i class="fa-solid fa-rose"></i>
+    </div>
+    <!-- Email Message Popup -->
+    <div class="icon-popup" id="emailPopup">
+      <span class="popup-close" id="closeEmailPopup">&times;</span>
+      <i class="fa-solid fa-envelope-open-text popup-icon"></i>
+      <div class="popup-message">
+        I sent you a love letter! <br> 💌<br>
+        Check your heart, it's there ♥
+      </div>
+    </div>
+    <!-- Gift Popup -->
+    <div class="icon-popup" id="giftPopup">
+      <span class="popup-close" id="closeGiftPopup">&times;</span>
+      <div class="popup-giftbox">
+        <div class="lid"></div>
+        <div class="box">
+          <div class="bow bow-left"></div>
+          <div class="bow bow-right"></div>
+        </div>
+        <div class="gift-content">
+          <i class="fa-solid fa-heart"></i><br>
+          Surprise! My love for you is the greatest gift! 🎁💕
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Kiss popup animation
+    const btn = document.querySelector('.love-btn');
+    const kissPopup = document.getElementById('kissPopup');
+    btn.addEventListener('click', function() {
+      kissPopup.classList.add('show');
+      setTimeout(() => kissPopup.classList.remove('show'), 1800);
+    });
+
+    // Email popup
+    const emailIcon = document.getElementById('emailIcon');
+    const emailPopup = document.getElementById('emailPopup');
+    const closeEmailPopup = document.getElementById('closeEmailPopup');
+
+    emailIcon.addEventListener('click', function() {
+      emailPopup.classList.add('show');
+    });
+
+    closeEmailPopup.addEventListener('click', function() {
+      emailPopup.classList.remove('show');
+    });
+
+    // Gift popup
+    const giftIcon = document.getElementById('giftIcon');
+    const giftPopup = document.getElementById('giftPopup');
+    const closeGiftPopup = document.getElementById('closeGiftPopup');
+
+    giftIcon.addEventListener('click', function() {
+      giftPopup.classList.add('show');
+      // animate gift box lid
+      giftPopup.querySelector('.lid').classList.add('open');
+    });
+
+    closeGiftPopup.addEventListener('click', function() {
+      giftPopup.classList.remove('show');
+      // reset box lid
+      giftPopup.querySelector('.lid').classList.remove('open');
+    });
+  </script>
+</body>
+</html>
